@@ -3,48 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cart - Neon Shop</title>
-  <link rel="stylesheet" href="style.css">
+  <title>DreddPrints - Cart</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    <h1>YOUR CART</h1>
-    <a href="index.html" class="cart-icon">← Back to Shop</a>
+    <h1>DreddPrints Cart</h1>
+    <a href="index.html">← Back to Shop</a>
   </header>
 
-  <div style="max-width: 900px; margin: 0 auto;">
-    <table>
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="cart-body">
-        <!-- Cart items will be filled by JavaScript -->
-      </tbody>
-    </table>
+  <main>
+    <section id="cart">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <div id="cart-total">Total: $0.00</div>
 
-    <div class="total-line" style="text-align: right; margin: 2rem 0;">
-      Total: <strong id="cart-total">$0.00</strong>
-    </div>
+      <form id="order-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d15087a0-3fc5-4402-bf0c-e25d18bb12bc" />
+        <input type="hidden" name="subject" value="New Order - DreddPrints" />
+        <input type="hidden" name="from_name" value="DreddPrints Customer" />
+        <input type="hidden" name="redirect" value="https://dfdredd.github.io/3D-Print-Store/thank-you.html" />
+        <input type="hidden" id="order-details" name="Order_Details" />
 
-    <!-- Single "Send Order" button for the whole cart -->
-    <div style="text-align: center; margin: 2.5rem 0;">
-      <a id="send-order-btn" href="#" class="btn"
-         style="font-size: 1.3rem; padding: 1rem 2.5rem; text-decoration: none;">
-        Send Order by Email
-      </a>
-    </div>
+        <div class="form-group">
+          <label for="customer-email">Your Email Address <span style="color:red;">*</span></label>
+          <input type="email" id="customer-email" name="email" placeholder="your@email.com" required />
+        </div>
 
-    <p id="cart-empty-msg" style="text-align:center; color:#888; font-size:1.2rem; display:none;">
-      Your cart is empty...
-    </p>
-  </div>
+        <p><strong>Preferred payments:</strong> CashApp or PayPal (4% fee added for PayPal). I'll contact you after submission to arrange payment and confirm details.</p>
+
+        <button type="submit" class="button" id="submit-order-btn" disabled>Submit Order</button>
+      </form>
+
+      <div id="form-message"></div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>

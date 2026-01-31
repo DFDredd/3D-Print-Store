@@ -5,14 +5,14 @@ const products = [
     name: "Small Clamshell",
     price: 0.20,
     image: "small-clamshell.jpg",
-    colors: ["Ruby Red", "Black", "White", "Neon Green", "Blue"]
+    colors: ["Black", "Blue", "Red"]
   },
   {
     id: 2,
     name: "Large Clamshell",
     price: 0.50,
     image: "large-clamshell.jpg",
-    colors: ["Black", "White", "Gray", "Red", "Purple"]
+    colors: ["Black", "Blue", "Red"]
   },
   {
     id: 3,
@@ -204,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
 

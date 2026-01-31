@@ -9,19 +9,18 @@ const products = [
   },
   {
     id: 2,
-    name: "Small BeanKan",
+    name: "Large Clamshell",
     price: 0.50,
-    image: "small-beankan.jpg",
+    image: "large-clamshell.jpg",
     colors: ["Black", "White", "Gray", "Red", "Purple"]
   },
   {
     id: 3,
-    name: "Poker Chip (Custom Colors)",
+    name: "Poker Chip Set (Custom Colors)",
     price: 15.00,
     image: "poker-chip.jpg"
-    // no colors array = no color selector
   },
-  // Add more products here...
+  // Add more products here as needed
 ];
 
 let cart = {};
@@ -48,7 +47,7 @@ function updateCartCount() {
   if (cartCountEl) cartCountEl.textContent = count;
 }
 
-// Render products on index.html
+// Render products on index.html with quantity input
 function renderProducts() {
   const productList = document.getElementById("product-list");
   if (!productList) return;
@@ -64,10 +63,14 @@ function renderProducts() {
       <p>$${product.price.toFixed(2)}</p>
       
       ${product.colors ? `
+        <label for="color-${product.id}">Color:</label>
         <select id="color-${product.id}">
           ${product.colors.map(color => `<option value="${color}">${color}</option>`).join('')}
         </select>
       ` : ''}
+      
+      <label for="qty-${product.id}">Quantity:</label>
+      <input type="number" id="qty-${product.id}" min="1" value="1" step="1" style="width:60px; margin:0 0.5rem;" />
       
       <button onclick="addToCart(${product.id})">Add to Cart</button>
     `;
@@ -75,19 +78,27 @@ function renderProducts() {
   });
 }
 
-// Add item to cart with selected color (if applicable)
+// Add item to cart with selected color & quantity
 function addToCart(id) {
   const product = products.find(p => p.id === id);
   const colorSelect = document.getElementById(`color-${id}`);
+  const qtyInput = document.getElementById(`qty-${id}`);
+  
   const selectedColor = colorSelect ? colorSelect.value : null;
+  const quantity = parseInt(qtyInput.value) || 1;
+  if (quantity < 1) return; // prevent invalid qty
 
-  const cartKey = selectedColor ? `${id}-${selectedColor}` : id;
+  const cartKey = selectedColor ? `${id}-${selectedColor}` : id.toString();
 
   if (!cart[cartKey]) {
     cart[cartKey] = { ...product, quantity: 0, color: selectedColor };
   }
-  cart[cartKey].quantity++;
+  cart[cartKey].quantity += quantity;
+  
   saveCart();
+
+  // Optional: reset quantity input after add
+  qtyInput.value = "1";
 
   if (document.getElementById("cart-items")) renderCart();
 }
@@ -180,9 +191,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("order-form");
   if (form) {
-    form.addEventListener("submit", () => {
-      document.getElementById("form-message").innerHTML = "<p style='color:green;'>Order submitted! You'll be redirected shortly.</p>";
+    form.addEventListener("submit", (e) => {
+      // Web3Forms handles the actual send + redirect
+      // We clear cart after submit (assuming success – real check would need AJAX)
+      setTimeout(() => {
+        cart = {};
+        saveCart();
+        renderCart();
+        document.getElementById("form-message").innerHTML = "<p style='color:green;'>Order submitted! Cart cleared. Redirecting...</p>";
+      }, 500); // small delay to allow form submit
     });
   }
 });
+
 

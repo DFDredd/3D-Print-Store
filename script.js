@@ -5,20 +5,23 @@ const products = [
     name: "Small Clamshell",
     price: 0.20,
     image: "small-clamshell.jpg",
-    colors: ["Black", "Blue", "Red"]
+    colors: ["Black", "Blue", "Red"],
+    description: "Small clamshells for seed storage/shipping",
   },
   {
     id: 2,
     name: "Small BeanKan",
     price: 25.0,
     image: "small-beankan.jpg",
+    description: "Small BeanKan has two layers and is used to germinate seeds without drowning them",
   },
   {
     id: 3,
     name: "Poker Chip",
     price: 0.25,
     image: "poker-chip.jpg",
-    colors: ["Black", "Blue", "Red", "Silver"]
+    colors: ["Black", "Blue", "Red", "Silver"],
+    description: "Poker chips can be customizable with a simple logo or text for an additional fee",
   },
   // Add more products here as needed
 ];
@@ -203,6 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
 

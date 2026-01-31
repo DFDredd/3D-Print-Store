@@ -16,7 +16,7 @@ const products = [
   },
   {
     id: 3,
-    name: "Poker Chip Set (Custom Colors)",
+    name: "Poker Chip",
     price: 15.00,
     image: "poker-chip.jpg",
     colors: ["Black", "Blue", "Red"]
@@ -204,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
 

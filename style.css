@@ -1,6 +1,7 @@
 /* ==============================================
-   DreddPrints Store - Full CSS
-   Responsive, clean, modern look
+   DreddPrints Store - Full Updated CSS
+   Responsive grid + product descriptions
+   January 2026 version
 ============================================== */
 
 /* Reset & Base */
@@ -78,8 +79,8 @@ h2 {
 /* Product Grid */
 #product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   padding: 0 1rem;
 }
 
@@ -90,7 +91,10 @@ h2 {
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
   text-align: center;
-  padding: 1.2rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .product:hover {
@@ -105,19 +109,31 @@ h2 {
   margin-bottom: 1.2rem;
   object-fit: cover;
   aspect-ratio: 1 / 1;
+  flex-shrink: 0;
 }
 
 .product h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.6rem;
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
   color: #1a1a2e;
 }
 
-.product p {
-  font-size: 1.4rem;
+.product .price {
+  font-size: 1.5rem;
   font-weight: bold;
   color: #e94560;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Product Description */
+.product .description {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0.8rem 0 1.2rem;
+  line-height: 1.45;
+  flex-grow: 1;
+  text-align: left;
+  min-height: 4.5em; /* helps keep cards even height */
 }
 
 /* Quantity & Color Selectors */
@@ -127,6 +143,7 @@ h2 {
   font-weight: 600;
   font-size: 0.95rem;
   color: #444;
+  text-align: left;
 }
 
 .product select,
@@ -157,8 +174,11 @@ h2 {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 0.5rem;
-  display: inline-block;
+  margin-top: auto; /* pushes button to bottom of card */
+  width: 100%;
+  max-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .product button:hover,
@@ -269,7 +289,7 @@ p strong {
 /* Responsive */
 @media (max-width: 768px) {
   #product-list {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
 
   header h1 {
@@ -288,7 +308,7 @@ p strong {
 
 @media (max-width: 480px) {
   .product {
-    padding: 1rem;
+    padding: 1.2rem;
   }
 
   .product button,
@@ -297,3 +317,4 @@ p strong {
     padding: 1rem;
   }
 }
+

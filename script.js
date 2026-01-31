@@ -19,7 +19,7 @@ const products = [
     name: "Poker Chip",
     price: 15.00,
     image: "poker-chip.jpg",
-    colors: ["Black", "Blue", "Red"]
+    colors: ["Black", "Blue", "Red", "Silver"]
   },
   // Add more products here as needed
 ];
@@ -204,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
 

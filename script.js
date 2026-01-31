@@ -10,13 +10,13 @@ const products = [
   {
     id: 2,
     name: "Small BeanKan",
-    price: 0.50,
+    price: 25.0,
     image: "small-beankan.jpg",
   },
   {
     id: 3,
     name: "Poker Chip",
-    price: 15.00,
+    price: 0.25,
     image: "poker-chip.jpg",
     colors: ["Black", "Blue", "Red", "Silver"]
   },
@@ -203,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
 

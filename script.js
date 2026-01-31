@@ -50,7 +50,7 @@ function updateCartCount() {
   if (cartCountEl) cartCountEl.textContent = count;
 }
 
-// Render products on index.html with quantity input
+// Render products on index.html with description
 function renderProducts() {
   const productList = document.getElementById("product-list");
   if (!productList) return;
@@ -63,7 +63,9 @@ function renderProducts() {
     div.innerHTML = `
       <img src="${product.image}" alt="${product.name}" />
       <h3>${product.name}</h3>
-      <p>$${product.price.toFixed(2)}</p>
+      <p class="price">$${product.price.toFixed(2)}</p>
+      
+      <p class="description">${product.description || 'No description available.'}</p>
       
       ${product.colors ? `
         <label for="color-${product.id}">Color:</label>
@@ -206,6 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
 

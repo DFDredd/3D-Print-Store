@@ -266,7 +266,7 @@ function updateMailto() {
   body += "Notes: _______________________________";
 
   const encoded = encodeURIComponent(body);
-  btn.href = `mailto:dfdredd@gmail.com?subject=New%20Neon%20Shop%20Order&body=${encoded}`;
+  btn.href = `mailto:df_dredd@yahoo.com?subject=New%20Neon%20Shop%20Order&body=${encoded}`;
 }
 
 // ==================== Init ====================
@@ -283,3 +283,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+

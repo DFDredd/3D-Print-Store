@@ -7,14 +7,14 @@ const products = [
     image: "small-clamshell.jpg",
     colors: ["Black", "Blue", "Red"],
     description: "Small clamshells for seed storage/shipping"
-  }
+  },
   {
     id: 2,
     name: "Small BeanKan",
     price: 25.0,
     image: "small-beankan.jpg",
     description: "Small BeanKan has two layers and is used to germinate seeds without drowning them"
-  }
+  },
   {
     id: 3,
     name: "Poker Chip",
@@ -206,6 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
 

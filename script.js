@@ -9,10 +9,9 @@ const products = [
   },
   {
     id: 2,
-    name: "Large Clamshell",
+    name: "Small BeanKan",
     price: 0.50,
-    image: "large-clamshell.jpg",
-    colors: ["Black", "Blue", "Red"]
+    image: "small-beankan.jpg",
   },
   {
     id: 3,
@@ -204,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
 
